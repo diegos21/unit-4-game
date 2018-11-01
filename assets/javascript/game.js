@@ -1,171 +1,211 @@
+$(document).ready(function() {
+  //variables
+  var hp1 = 100; var hp2 = 1500; var hp3 = 1000; var hp4 = 100;
+  var ap1 = 4;  var ap2 = 6; var ap3 = 4; var ap4 = 4;
+  var cp1 = 5;  var cp2 = 5;  var cp3 = 3;  var cp4 = 5;
 
- $(document).ready(function() {
+  var setup1 = 0; var setup2 = 0; var setup3 = 0; var setup4 = 0;
+  var setup1_1 = 0; var setup2_1 = 0; var setup3_1 = 0; var setup4_1 = 0;
 
-
-    alert("elige un peliador");
-
-
-
-    var primerseleccion = false;
-    function seleccionpeliador(){
-        if (primerseleccion == false){
-            primerseleccion = true;
-        }
-    }
-    var segundaseleccion = false;
-    function seleccionoponente(){
-        if (segundaseleccion == false){
-            segundaseleccion = true;
-        }
-    }
-func3();
-
-var x = 0;
-
-var hp1 = 73; var hp2 = 88; var hp3 = 55;
-var ap1 = 20;  var ap2 = 6; var ap3 = 4;
-var cp1 = 5;  var cp2 = 8;  var cp3 = 3;
-cont1 = 0;
-
-    function func4(){
-      if (cont1 == 1 && segundaseleccion == true) {
-          if (x == 1) {// 1 vs 2
-            $('#defendarea').attr('src','https://vignette.wikia.nocookie.net/hunterxhunter/images/6/66/Gin_HD.png/revision/latest?cb=20141006032816&path-prefix=es')
-            duelo(12);
-          }
-          if (x == 2) { // 1 vs 3
-            $("#defendarea").attr('src','http://pm1.narvii.com/6522/2ed83bdfef0365d7bf5ca05c67c395b587f22193_00.jpg');
-            $("#defendarea").show();
-            hpgon(hp3);
-            duelo(13);
-          }
-          if (x == 3) { // 1 vs 4
-            $('#defendarea').attr('src','https://i.pinimg.com/236x/e9/dc/cc/e9dcccb6799da849d914bd769081bb71--inspirational-x.jpg');
-            $("#defendarea").show();
-            duelo(14);
-          }
-      }
-    }
+  var contNetero = 0; var contGing = 0; var contGon = 0; var contKillua = 0;
+  var contReset = 0;
 
 
-    function hpging(x) {
-      document.getElementById("defend").max = "88";
-      document.getElementById("defend").value = x;
-      if (x < 0) {
-        reset();
-      }
+  var migra = false;
 
-    }
 
-    function hpgon(x) {
-      document.getElementById("defend").max = "55";
-      document.getElementById("defend").value = x;
-      if (x < 0) {
-        reset();
-      }
+  //secuencia
+  setup();
 
-    }
-
-    function hpnetero(x) {
-      document.getElementById("attack").max = "73";
-      document.getElementById("attack").value = x;
-
-    }
-    function reset() {
-      $("#defendarea").hide();
-      segundaseleccion = false;
-      func3();
-
-    }
+  //$('.btn').on("click", function() {
+  //  AttackOnBtn();
+  //});
 
 
 
 
-var cont0 = 0; var dmgnetero;
-
-function duelo(x){
-
-  if (x == 12) {
-      $('.btn').on("click", function() {
-
-          cont0++;
-          dmgnetero = ap1*cont0; // netero ap
-          hp2 = hp2 -dmgnetero;  // ging hp
-          hpging(hp2);   // ging
-          hp1 = hp1 - cp2;
-          hpnetero(hp1);
-
-      });
-  }
-  if (x == 13) {
-      $('.btn').on("click", function() {
-          dmgnetero = ap1*cont0; //netero ap
-          hp3 = hp3 - x; //gon hp
-          hpgon(hp3); //gon
-          hp1 = hp1 - cp3;
-          hpnetero(hp1);
+  //funciones
+  function setup() {
 
 
-        //alert("hola13");
 
-      });
-  }
-  if (x == 14) {
-      $('.btn').on("click", function() {
-        alert("hola14");
-
-      });
-  }
+    $('#defendarea').attr('src','data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=');
+    $('#attackarea').attr('src','data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=');
 
 
-}
 
 
-function func3(){
+    alert("elije un peliador y oponente");
 
     $('#1').on({
         'click': function(){
-            if (primerseleccion == false){
-                seleccionpeliador();
-                $('#attackarea').attr('src','https://vignette.wikia.nocookie.net/hunterxhunter/images/6/6a/Isaac_Netero_in_Departure%21.png/revision/latest?cb=20140709111509');
-                alert("elije un oponente");
-                cont1++;
-            }
+          //atacante
+          if (migra == false && setup1 == 0) {
+            immigration();
+            setup1 = 1; //betero main
+            $("#attackarea").attr('src','https://vignette.wikia.nocookie.net/hunterxhunter/images/6/6a/Isaac_Netero_in_Departure%21.png/revision/latest?cb=20140709111509');
+            AttackOnBtn();
+          }
+          //oponente
+          if (migra == true && setup1 == 0) {
+            setup1_1 = 1; //netero oponente
+            $("#defendarea").attr('src','https://vignette.wikia.nocookie.net/hunterxhunter/images/6/6a/Isaac_Netero_in_Departure%21.png/revision/latest?cb=20140709111509');
+            AttackOnBtn();
+          }
         }
     });
-
     $('#2').on({
-      'click': function(){
-        if (segundaseleccion == false){
-          seleccionoponente();
-          x = 1;
-          func4();
+        'click': function(){
+          if (migra == false && setup2 == 0) {
+            immigration();
+            setup2 = 1; //ging main
+            $('#attackarea').attr('src','https://vignette.wikia.nocookie.net/hunterxhunter/images/6/66/Gin_HD.png/revision/latest?cb=20141006032816&path-prefix=es');
+            AttackOnBtn();
+          }
+          if (migra == true && setup2 == 0) {
+            setup2_1 = 1; //ging oponente
+            $('#defendarea').attr('src','https://vignette.wikia.nocookie.net/hunterxhunter/images/6/66/Gin_HD.png/revision/latest?cb=20141006032816&path-prefix=es');
+            AttackOnBtn();
+          }
         }
-      }
     });
-
     $('#3').on({
-      'click': function(){
-        if (segundaseleccion == false){
-          seleccionoponente();
-          x = 2;
-          func4();
+        'click': function(){
+          if (migra == false && setup3 == 0) {
+            immigration();
+            setup3 = 1;
+            $("#attackarea").attr('src','http://pm1.narvii.com/6522/2ed83bdfef0365d7bf5ca05c67c395b587f22193_00.jpg');
+            AttackOnBtn();
+          }
+          if (migra == true && setup3 == 0) {
+            setup3_1 = 1;
+            $("#defendarea").attr('src','http://pm1.narvii.com/6522/2ed83bdfef0365d7bf5ca05c67c395b587f22193_00.jpg');
+            AttackOnBtn();
+          }
         }
-      }
     });
-
     $('#4').on({
-      'click': function(){
-        if (segundaseleccion == false){
-          seleccionoponente();
-          x = 3;
-          func4();
+        'click': function(){
+          if (migra == false && setup4 == 0) {
+            immigration();
+            setup4 = 1;
+            $('#attackarea').attr('src','https://i.pinimg.com/236x/e9/dc/cc/e9dcccb6799da849d914bd769081bb71--inspirational-x.jpg');
+            AttackOnBtn();
+          }
+          if (migra == true && setup4 == 0) {
+            setup4_1 = 1;
+            $('#defendarea').attr('src','https://i.pinimg.com/236x/e9/dc/cc/e9dcccb6799da849d914bd769081bb71--inspirational-x.jpg');
+            AttackOnBtn();
+          }
         }
-      }
     });
 
   }
 
+  function AttackOnBtn() {
+
+    //netero vs gon
+    if (setup1 == 1 && setup3_1 == 1) {
+      $('.btn').on("click", function() {
+        if(hp3 > 0 && contReset == 0){
+          contNetero++;
+          ap1 = 16*contNetero;
+          //alert(contNetero);
+          hp3 = hp3 - ap1;
+          hp1 = hp1 - cp3;
+          hpnetero(hp1);
+          hpgon(hp3);
+          //alert(ap1);
+          reset();
+        }
+
+      });
+    }
+
+    //netero vs ging
+    if (setup1 == 1 && setup2_1 == 1) {
+      $('.btn').on("click", function() {
+        if(hp2 > 0 && contReset == 0){
+
+          contNetero++;
+          ap1 = 16*contNetero;
+          hp2 = hp2 - ap1;
+          hp1 = hp1 - cp2;
+          hpnetero(hp1);
+          hpging(hp2);
+          //alert(ap1);
+          reset();
+        }
+      });
+    }
+
+    //netero vs killua
+    if (setup1 == 1 && setup4_1 == 1) {
+      $('.btn').on("click", function() {
+        if(hp4 > 0 && contReset == 0){
+          contNetero++;
+          ap1 = 16*contNetero;
+          hp4 = hp4 - ap1;
+          hp1 = hp1 - cp4;
+          hpnetero(hp1);
+          hpkillua(hp4);
+          //alert(ap1);
+          reset();
+        }
+      });
+    }
+
+
+
+  }
+
+  function reset (){
+
+
+    if (hp2 < 0 && hp3 < 0 && hp4 < 0 && contReset == 0) {
+      contReset++;
+      hp1 = 100; hp2 = 1500; hp3 = 1000; hp4 = 100;
+      migra = false;
+      setup1 = 0; setup2 = 0; setup3 = 0; setup4 = 0;
+      contNetero = 0;
+
+      hpnetero(0);
+      setup();
+    }
+
+  }
+
+
+  function immigration() {
+    if (migra == false) {
+      migra = true;
+
+    }
+
+  }
+
+  function hpnetero(x) {
+      document.getElementById("attack").max = "100";
+      document.getElementById("attack").value = x;
+
+    }
+
+  function hpgon(x) {
+      document.getElementById("defend").max = "1000";
+      document.getElementById("defend").value = x;
+
+    }
+
+    function hpging(x) {
+        document.getElementById("defend").max = "1500";
+        document.getElementById("defend").value = x;
+
+      }
+    function hpkillua(x) {
+        document.getElementById("defend").max = "100";
+        document.getElementById("defend").value = x;
+
+      }
 
 
 
@@ -181,32 +221,36 @@ function func3(){
 
 
 
-// $('#2').on({
-//     'click': function(){
-//         if (primerseleccion == false){
-//             seleccionpeliador();
-//             $('#attackarea').attr('src','https://vignette.wikia.nocookie.net/hunterxhunter/images/6/66/Gin_HD.png/revision/latest?cb=20141006032816&path-prefix=es');
-//         }
-//     }
-// });
-//
-// $('#3').on({
-//     'click': function(){
-//       if (primerseleccion == false) {
-//           seleccionpeliador();
-//           $('#attackarea').attr('src','http://pm1.narvii.com/6522/2ed83bdfef0365d7bf5ca05c67c395b587f22193_00.jpg');
-//       }
-//
-//     }
-// });
-//
-// $('#4').on({
-//     'click': function(){
-//         if (primerseleccion == false) {
-//             $('#attackarea').attr('src','https://i.pinimg.com/236x/e9/dc/cc/e9dcccb6799da849d914bd769081bb71--inspirational-x.jpg');
-//         }
-//     }
-// });
 
 
- });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
