@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <title>Unit 4 Game</title>
-    
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="assets/javascript/game.js"></script>
 </head>
 <body>
 
-   
+
 
    <div class="container">
         <div class="row">
@@ -18,47 +18,62 @@
                 <h1>HUNTER X HUNTER</h1>
                 <hr style="height:1px;border:none;color:#333;background-color:#333;" />
             </div>
-        </div>        
-        
+        </div>
+
         <div class="row mb-2">
             <div class="col-md-3">
-                <img id="1" src="https://vignette.wikia.nocookie.net/hunterxhunter/images/6/6a/Isaac_Netero_in_Departure%21.png/revision/latest?cb=20140709111509" class="rounded float-left" alt="netero" height="150" width="150">  
+                <img id="1" src="https://vignette.wikia.nocookie.net/hunterxhunter/images/6/6a/Isaac_Netero_in_Departure%21.png/revision/latest?cb=20140709111509" class="rounded float-left" alt="netero" height="150" width="150">
             </div>
             <div class="col-md-3">
-                <img id="2" src="https://vignette.wikia.nocookie.net/hunterxhunter/images/6/66/Gin_HD.png/revision/latest?cb=20141006032816&path-prefix=es" class="rounded float-left" alt="netero" height="150" width="150">  
+                <img id="2" src="https://vignette.wikia.nocookie.net/hunterxhunter/images/6/66/Gin_HD.png/revision/latest?cb=20141006032816&path-prefix=es" class="rounded float-left" alt="netero" height="150" width="150">
             </div>
             <div class="col-md-3">
-                <img id="3" src="http://pm1.narvii.com/6522/2ed83bdfef0365d7bf5ca05c67c395b587f22193_00.jpg" class="rounded float-left" alt="netero" height="150" width="150">  
+                <img id="3" src="http://pm1.narvii.com/6522/2ed83bdfef0365d7bf5ca05c67c395b587f22193_00.jpg" class="rounded float-left" alt="netero" height="150" width="150">
             </div>
             <div class="col-md-3">
-                <img id="4" src="https://i.pinimg.com/236x/e9/dc/cc/e9dcccb6799da849d914bd769081bb71--inspirational-x.jpg" class="rounded float-left" alt="netero" height="150" width="150">  
+                <img id="4" src="https://i.pinimg.com/236x/e9/dc/cc/e9dcccb6799da849d914bd769081bb71--inspirational-x.jpg" class="rounded float-left" alt="netero" height="150" width="150">
             </div>
         </div>
 
 
         <div class="row">
-                <div class="col-md-6">
-                    <div class="d-flex justify-content-center">
-                        <p>ATTACK AREA</p> 
-                    </div>                                       
-                </div>
-                <div class="col-md-6">
-                    <div class="d-flex justify-content-center">
-                        <p>DEFENDER AREA</p>
-                    </div>                                       
+            <div class="col-md-6">
+                <div class="d-flex justify-content-center">
+                    <p>ATTACK AREA</p>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="d-flex justify-content-center">
+                    <p>DEFENDER AREA</p>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-6">
                 <div class="d-flex justify-content-center">
-                    <img id="attackarea" src="first.jpg" height="150" width="150"/>
-                </div>                                       
+                  <div class="d-flex flex-column">
+                    <div class="p-2"><img id="attackarea" src="first.jpg" height="150" width="150"/></div>
+                    <progress id="attack" value="100" max="100"></progress>
+                  </div>
+
+                </div>
             </div>
             <div class="col-md-6">
                 <div class="d-flex justify-content-center">
-                    <img id="defendarea" src="first.jpg" height="150" width="150"/>
-                </div>                                       
+                  <div class="d-flex flex-column">
+                    <div class="p-2"><img id="defendarea" src="first.jpg" height="150" width="150"/></div>
+                    <progress id="defend" value="100" max="100"></progress>
+                 </div>
+               </div>
+           </div>
+      </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-primary">Attack</button>
+                </div>
             </div>
         </div>
 
@@ -68,7 +83,7 @@
 
         <!-- Footer Elements -->
         <div class="container">
-    
+
           <!-- Social buttons -->
           <ul class="list-unstyled list-inline text-center">
             <li class="list-inline-item">
@@ -98,25 +113,25 @@
             </li>
           </ul>
           <!-- Social buttons -->
-    
+
         </div>
         <!-- Footer Elements -->
-    
+
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2018 Copyright:
         </div>
         <!-- Copyright -->
-    
+
       </footer>
       <!-- Footer -->
 
-    
+
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-   
+
     </body>
-    
+
     </html>
 
 
